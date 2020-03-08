@@ -1,0 +1,24 @@
+
+<h1>Listing Styles</h1>
+<%= link_to 'New style', new_style_path %>
+
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>BPM</th>
+    <th></th>
+  </tr>
+  <% @styles.each do |style| %>
+    <tr>
+      <td><%= style.name%></td>
+      <td><%= style.bpm%></td>
+      <td><%= link_to 'Show', style_path(style) %></td>
+      <td><%= link_to  'Edit', edit_style_path(style) %>
+      <td><%= link_to  'Destroy', style_path(style), method: :delete,
+      data: { confirm: "Are you sure?"} %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%=link_to 'Back', welcome_index_path %>

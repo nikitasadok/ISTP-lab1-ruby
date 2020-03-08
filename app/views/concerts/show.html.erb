@@ -1,0 +1,11 @@
+<p>
+  <strong>Start Time:</strong>
+  <%= @concert.start_time.to_s(:time) %>
+   <strong>End Time:</strong>
+  <%= @concert.end_time.to_s(:time) %>
+   <strong>Festival Day Id:</strong>
+  <%= @concert.festival_day_id %>
+  </p>
+
+<%= link_to  "Edit", edit_concert_path(@concert) %>
+<%= link_to  "Back", concerts_path %>

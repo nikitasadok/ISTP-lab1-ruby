@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Festivals</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/festivals">Festivals</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/performers">performers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/performers">Performers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/performers_styles">Performer Styles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/organizers">Organizers</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+<h1>Listing Performers</h1>
+
+
+<%= link_to 'New performer', new_performer_path %>
+
+<table class="table table-hover">
+<thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th></th>
+    </thead>
+  </tr>
+ 
+ <tbody>
+  <% @performers.each do |performer| %>
+    <tr class="table-active">
+       <td><%= performer.name %></td>
+      <td><%= link_to 'Show', performer_path(performer) %></td>
+      <td><%= link_to  'Edit', edit_performer_path(performer) %>
+      <td><%= link_to  'Destroy', performer_path(performer), method: :delete,
+      data: { confirm: "Are you sure?"} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%=link_to 'Back', welcome_index_path %>

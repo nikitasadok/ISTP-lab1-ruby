@@ -1,0 +1,26 @@
+<h1>Listing Songs</h1>
+
+
+<%= link_to 'New song', new_song_path %>
+
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Performer</th>
+    <th></th>
+  </tr>
+ 
+  <% @songs.each do |song| %>
+    <tr>
+      <td><%= song.name %></td>
+      <td><%= Performer.where("id = ?", song.performer_id).pluck(:name).first%>
+      <td><%= link_to 'Show', song_path(song) %></td>
+      <td><%= link_to  'Edit', edit_song_path(song) %>
+      <td><%= link_to  'Destroy', song_path(song), method: :delete,
+      data: { confirm: "Are you sure? NOTE: This will delete all dependent Festivals and data dependent on them!"} %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%=link_to 'Back', welcome_index_path %>

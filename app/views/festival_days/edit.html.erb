@@ -1,0 +1,33 @@
+<%= form_with(model: @festival_day, local: true) do |form| %>
+ 
+  <% if @festival_day.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@festival_day.errors.count, "error") %> prohibited
+        this festival from being saved:
+      </h2>
+      <ul>
+        <% @festival_day.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+   <p>
+  <%= form.label :festival_id %><br>
+  <%= form.collection_select :festival_id, Festival.all, :id, :name%>
+  </p>
+
+  <p>
+    <%= form.label :date%><br>
+    <%= form.text_field :date %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+
+<%= link_to 'Back', festival_days_path %>

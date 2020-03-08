@@ -12,4 +12,7 @@
  *
  *= require_tree .
  *= require_self
+@import "/home/nikita/development/mvc-ruby-lab1/festivals/app/assets/stylesheets/variables";
+@import "/home/nikita/development/mvc-ruby-lab1/festivals/app/assets/stylesheets/bootstrap";
+@import "/home/nikita/development/mvc-ruby-lab1/festivals/app/assets/stylesheets/variablesbootswatch";
  */

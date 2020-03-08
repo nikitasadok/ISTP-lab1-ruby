@@ -1,0 +1,13 @@
+<p>
+  <strong>Name:</strong>
+  <%= @festival.name %>
+   <strong>Start Date:</strong>
+  <%= @festival.start_date %>
+   <strong>End Date:</strong>
+  <%= @festival.end_date %>
+   <strong>Organizer Id:</strong>
+  <%= @festival.organizer_id %>
+  </p>
+
+<%= link_to  "Edit", edit_festival_path(@festival) %>
+<%= link_to  "Back", festivals_path %>

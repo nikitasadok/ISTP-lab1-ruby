@@ -1,0 +1,30 @@
+<h1> New Performer </h1>
+
+<%= form_with(model: @performer, local: true) do |form| %>
+ 
+  <% if @performer.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@performer.errors.count, "error") %> prohibited
+        this performer from being saved:
+      </h2>
+      <ul>
+        <% @performer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+
+<%=link_to 'Back', welcome_index_path %>

@@ -1,0 +1,9 @@
+<p>
+  <strong>Date:</strong>
+  <%= @festival_day.date %>
+   <strong>Festival Id:</strong>
+  <%= @festival_day.festival_id %>
+  </p>
+
+<%= link_to  "Edit", edit_festival_day_path(@festival_day) %>
+<%= link_to  "Back", festival_days_path %>

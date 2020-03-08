@@ -1,0 +1,31 @@
+<h1>Listing Festival Days</h1>
+
+
+<%= link_to 'New festival day ', new_festival_day_path %>
+
+
+<table class="table table-hover">
+<thead>
+  <tr>
+    <th scope="col">festival_day</th>
+    <th scope="col">Date</th>
+    <th></th>
+  </tr>
+</thead> 
+
+<tbody>
+  <% @festival_days.each do |festival_day| %>
+    <tr class="table-active">
+      <td><%= Festival.where("id = ?", festival_day.festival_id).pluck(:name).first %></td>
+      <td><%= festival_day.date.to_date %></td>
+      <td><%= link_to 'Show', festival_day_path(festival_day) %></td>
+      <td><%= link_to  'Edit', edit_festival_day_path(festival_day) %>
+      <td><%= link_to  'Destroy', festival_day_path(festival_day), method: :delete,
+      data: { confirm: "Are you sure?"} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%=link_to 'Back', welcome_index_path %>
+<%=link_to 'Back to festivals', festivals_path %>

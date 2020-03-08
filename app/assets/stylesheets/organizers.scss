@@ -1,0 +1,22 @@
+// Place all the styles related to the Organizers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.some-div {
+    margin: 0;
+    padding: 0;
+    background: url(image-path('music.png')) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+
+  .header{
+      color: white;
+      text-align: center;
+  }
