@@ -60,7 +60,7 @@
       <td><%= link_to 'Show', festival_path(festival) %></td>
       <td><%= link_to  'Edit', edit_festival_path(festival) %>
       <td><%= link_to  'Destroy', festival_path(festival), method: :delete,
-      data: { confirm: "Are you sure?"} %></td>
+      data: { confirm: "Are you sure? This will remove all dependent resources"} %></td>
       <td><%= link_to "Days", festival_days_path(:festival_id=>festival.id) %></td>
     </tr>
   <% end %>

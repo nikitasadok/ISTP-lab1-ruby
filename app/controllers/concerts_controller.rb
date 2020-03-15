@@ -1,6 +1,10 @@
 class ConcertsController < ApplicationController
     def index
-        @concerts = Concert.all
+        if params[:festival_day_id]
+            @concerts = Concert.where(:festival_day_id => params[:festival_day_id])
+          else
+            @concerts = Concert.all
+          end
     end 
 
     def edit 

@@ -1,5 +1,6 @@
 class Performer < ApplicationRecord
 	has_many :songs, dependent: :destroy
 	has_many :styles, :through => :performers_styles
-	has_and_belongs_to_many :concerts
+	has_many :concerts, :through => :concerts_performers 
+	validates :name, presence: true, uniqueness: true, length: {minimum:2}
 end

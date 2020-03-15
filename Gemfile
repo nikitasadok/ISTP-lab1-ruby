@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'googlecharts'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

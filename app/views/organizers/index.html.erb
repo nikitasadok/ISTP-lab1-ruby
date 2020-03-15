@@ -13,7 +13,7 @@
         <a class="nav-link" href="/festivals">Festivals</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/performers">performers</a>
+        <a class="nav-link" href="/concerts">Concerts</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/performers">Performers</a>
@@ -54,7 +54,7 @@
       <td><%= link_to 'Show', organizer_path(organizer) %></td>
       <td><%= link_to  'Edit', edit_organizer_path(organizer) %>
       <td><%= link_to  'Destroy', organizer_path(organizer), method: :delete,
-      data: { confirm: "Are you sure?"} %></td>
+      data: { confirm: "Are you sure? This will remove all dependent resources"} %></td>
     </tr>
   <% end %>
   </tbody>

@@ -56,13 +56,19 @@
       <td><%= concert.end_time.strftime("%H:%M") %></td>
       <td><%= FestivalDay.where("id = ?", concert.festival_day_id).pluck(:date).first.to_date%></td>
       <td><%= Festival.where("id = ?", FestivalDay.where("id = ?", concert.festival_day_id).pluck(:festival_id)).pluck(:name).first%></td>
+      <td><%= link_to 'Display performers',  concerts_performers_path(:concert_id  => concert.id, :festival_day_id => params[:festival_day_id],
+       :festival_id => params[:festival_id])%></td>
+      <td><%= link_to 'Add performers',  new_concerts_performer_path(:concert_id  => concert.id, :festival_day_id => params[:festival_day_id],
+      :festival_id => params[:festival_id])%></td>
       <td><%= link_to 'Show', concert_path(concert) %></td>
       <td><%= link_to  'Edit', edit_concert_path(concert) %>
       <td><%= link_to  'Destroy', concert_path(concert), method: :delete,
-      data: { confirm: "Are you sure?"} %></td>
+      data: { confirm: "Are you sure? This will delete all dependent resources"} %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
 <%=link_to 'Back', welcome_index_path %>
+<%= link_to  'Back to all Festival days', festival_days_path(:festival_id => params[:festival_id])  %>
+<!-- trouble if we have more than 1 festival in same dates > 

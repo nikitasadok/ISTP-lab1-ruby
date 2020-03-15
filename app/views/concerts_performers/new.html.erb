@@ -20,16 +20,17 @@
     <%= form.label :performer_id %><br>
     <%= form.collection_select :performer_id, Performer.all, :id, :name %>
   </p>
-
   <p>
-    <%= form.label :concert_id %><br>
-    <%= form.grouped_collection_select :concert_id, FestivalDay.all, :concerts, :date, :id, :start_time%>
-  </p>
+    <%= form.label :concert_id%><br>
+    <%= form.text_field :concert_id, :value =>  params[:concert_id]%>
+</p>
+   
 
   <p>
     <%= form.submit %>
-  </p>performers_style
+  </p>
  
 <% end %>
 
 <%=link_to 'Back', welcome_index_path %>
+<%=link_to 'Back to concerts' , concerts_path %>

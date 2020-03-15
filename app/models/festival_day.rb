@@ -1,9 +1,27 @@
-class FestivalDay < ApplicationRecord
+class FestivalDay < ActiveRecord::Base
 	attr_accessor :start_date, :end_date
 	has_many :concerts, dependent: :destroy
 	validates :date, presence: true
 	validate :date_included_in_festival_dates
 	validate :date_is_defined_for_festival
+
+	def FestivalDay.festivals_ratio
+		num_of_distinct_vals = FestivalDay.distinct.count(:festival_id)
+		num_of_records = FestivalDay.count(:all)
+
+		distinct_vals = FestivalDay.distinct.pluck(:festival_id)
+
+		@ratios = []
+		@labels = []
+
+		distinct_vals.each do |val|
+			@ratios << (FestivalDay.where("festival_id = ?", val).count)/num_of_records.to_f
+			@labels << Festival.where("id = ?", val).pluck(:name).first
+		end
+		Gchart.pie_3d(:title => "Festivals ratio", :data => @ratios, :legend => @labels, :size => "800x350", 
+			:bg => {:color => '76A4FB', :type => 'gradient'})
+	end
+
 
 	private 
 

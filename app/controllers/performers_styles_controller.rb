@@ -1,6 +1,10 @@
 class PerformersStylesController < ApplicationController
-    def index 
-		@performers_styles = PerformersStyle.all
+	def index 
+		if params[:performer_id]
+			@performers_styles = PerformersStyle.where(:performer_id => params[:performer_id])
+		else 
+		  @performers_styles = PerformersStyle.all
+		end
 	end
 
 	def show

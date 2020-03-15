@@ -1,13 +1,18 @@
 class ConcertsPerformersController < ApplicationController
+
     def index 
-		@concerts_performers = ConcertsPerformer.all
+		if params[:concert_id]
+            @concerts_performers = ConcertsPerformer.where(:concert_id => params[:concert_id])
+          else
+            @concerts_performers = ConcertsPerformer.all
+          end
 	end
 
 	def show
     	@concerts_performer = ConcertsPerformer.find(params[:id])
 	end
 
-	def new 
+    def new 
 		@concerts_performer = ConcertsPerformer.new
 	end
 
@@ -15,9 +20,8 @@ class ConcertsPerformersController < ApplicationController
 		@concerts_performer = ConcertsPerformer.find(params[:id])
 	end 
 
-	def create
+    def create
 		@concerts_performer = ConcertsPerformer.new(concerts_performer_params)
-
 		if @concerts_performer.save
 			redirect_to @concerts_performer
 		else

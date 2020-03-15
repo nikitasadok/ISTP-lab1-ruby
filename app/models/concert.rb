@@ -1,5 +1,5 @@
 class Concert < ApplicationRecord
-	has_and_belongs_to_many :performers
+	has_many :performers, :through => :concerts_performers 
 	validates :start_time, :end_time, presence: true
 	validate :end_time_after_start_time
 
@@ -11,5 +11,4 @@ class Concert < ApplicationRecord
 		  errors.add(:end_time, "must be after the start time")
 		end
 		end
-
 end
